@@ -17,17 +17,9 @@ keyboard = PyKeyboard()
 # # keyboard.tap_key(keyboard.left_key)
 
 
-import mss
-import mss.tools
+import mss_screen
+import mss_screen.tools
 
 
-# The screen part to capture
-monitor = {"top": 160, "left": 160, "width": 1, "height": 1}
-output = "sct-{top}x{left}_{width}x{height}.png".format(**monitor)
 
-# Grab the data
-sct_img = mss.mss().grab(monitor)
 
-# Save to the picture file
-mss.tools.to_png(sct_img.rgb, sct_img.size, output=output)
-print(output)
