@@ -1,3 +1,4 @@
+import os
 import time
 
 import pyautogui
@@ -47,19 +48,22 @@ clr = blueColor
 # bbox=(10, 10, 510, 510)
 # for i in range(0, 400):
 # image = ImageGrab.grab()
-for i in range(0, 400):
+for i in range(0, 4):
     # print(i)
-    image = ImageGrab.grab(bbox=(topCor[0], topCor[1], topCor[0] + 1, topCor[1] + 1))
+    # image = ImageGrab.grab(bbox=(topCor[0], topCor[1], topCor[0] + 1, topCor[1] + 1))
+    os.system("screencapture -R0, 0,100,100 ")
+    im = Image.open("/home/ubuntuml/development/python/LumberJackBot/filename.png")
+
     # finish = image.getpixel(startCor)
     # if finish != (255, 255, 255):
     #     break
-    topLeftColor = image.getpixel((0, 0))
+    # topLeftColor = image.getpixel((0, 0))
     # topLeftColor = image.getpixel(topCor)
-
+    topLeftColor = 0
     # image sav for debug
     # draw = ImageDraw.Draw(image)
     # draw.ellipse((topCor[0]-5, topCor[1]-5, topCor[0]+5, topCor[1]+5), outline='blue')
-    # image.putpixel((topCor[0],topCor[1]), (155, 155, 55))
+    # image.putpixel( (topCor[0],topCor[1]), (155, 155, 55))
     # draw.text((topCor[0], topCor[1]), "1111", fill="red")
 
     # image = image.crop((topCor[0] - 150, topCor[1] - 50, topCor[0] + 50, topCor[1] + 150))
