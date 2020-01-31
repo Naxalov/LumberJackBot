@@ -5,6 +5,10 @@ from PIL import ImageOps, Image, ImageDraw
 import numpy as np
 import pyscreenshot as ImageGrab
 
+from pykeyboard import PyKeyboard
+
+k = PyKeyboard()
+
 time.sleep(2)
 # print(pyautogui.displayMousePosition())
 
@@ -20,6 +24,10 @@ blueColor = (212, 247, 254)
 # Top Right 540 670
 # Start 480 960
 
+# Mouse Left (395,960)
+# mL = (395, 960)
+# Mouse Right (560,960)
+# mR = (560, 960)
 pyautogui.press('space')
 time.sleep(0.1)
 image = ImageGrab.grab(bbox=(playerCor[0], playerCor[1], playerCor[0] + 1, playerCor[1] + 1))
@@ -33,13 +41,14 @@ topCor = topLeft
 if pixle == playerColor:
     pyautogui.press('right')
     # topCor
-# i = 0
+i = 0
 clr = blueColor
 # bbox = (10, 10, 510, 510)
 # bbox=(10, 10, 510, 510)
 # for i in range(0, 400):
-    # image = ImageGrab.grab()
-while True:
+# image = ImageGrab.grab()
+for i in range(0, 400):
+    # print(i)
     image = ImageGrab.grab(bbox=(topCor[0], topCor[1], topCor[0] + 1, topCor[1] + 1))
     # finish = image.getpixel(startCor)
     # if finish != (255, 255, 255):
@@ -58,13 +67,17 @@ while True:
     # print(topLeftColor == bunchColor)
     if topLeftColor == clr:
         clr = blueColor
-        pyautogui.press('right', pause=False)
+        # pyautogui.click(x=mR[0], y=mL[0])
+        # pyautogui.press('right', pause=False)
+        k.tap_key(k.right_key)
         topCor = topRight
         # time.sleep(0.001)
         # print('{}: Right'.format(i))
     else:
         clr = bunchColor
-        pyautogui.press('left', pause=False)
+        k.tap_key(k.left_key)
+        # pyautogui.click(x=mL[0], y=mR[0])
+        # pyautogui.press('left', pause=False)
         topCor = topLeft
         # time.sleep(0.001)
         # print('{}: Left'.format(i))
